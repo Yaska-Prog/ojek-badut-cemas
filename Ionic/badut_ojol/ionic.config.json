@@ -1,0 +1,7 @@
+{
+  "name": "badut_ojol",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
