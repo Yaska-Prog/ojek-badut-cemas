@@ -1,0 +1,57 @@
+<ion-app>
+  <ion-content>
+    <h1>Registrasi pelanggan!</h1>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        id="username"
+        label="Username"
+        labelPlacement="floating"
+        [counter]="true"
+        maxLength="40">
+      </ion-input>
+    </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        id="password"
+        label="Password"
+        labelPlacement="floating"
+        type="password">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        id="re_password"
+        label="Re-Type password"
+        labelPlacement="floating"
+        type="password">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        id="full_name"
+        label="Nama lengkap"
+        labelPlacement="floating">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        id="tanggal_lahir"
+        label="Tanggal lahir"
+        labelPlacement="floating">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-button color="success" expand="full" shape="round" routerLink="/registerPelanggan">
+      Register
+    </ion-button>
+  </ion-content>
+</ion-app>
