@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>main-pelanggan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1>Apa yang ingin anda lakukan hari ini?</h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" (click)="orderRide()">
+        <div class="col_content_main">
+          <ion-icon name="bicycle-outline" style="font-size: 164px;"></ion-icon>
+          <ion-label>Pesan ojek</ion-label>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="col_content_main">
+          <ion-icon name="fast-food-outline" style="font-size: 164px;"></ion-icon>
+          <ion-label>Pesan makanan</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
