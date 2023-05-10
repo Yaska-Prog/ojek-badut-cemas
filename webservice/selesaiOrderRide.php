@@ -20,4 +20,7 @@
   else{
     echo json_encode(["status"=>"Fail", "message"=>"Terjadi kesalahan pada saat mengubah data"]);
   }
+
+  $stmt->close();
+  $conn->close();
 ?>

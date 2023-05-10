@@ -64,4 +64,7 @@
   else{
     echo json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
   }
+
+  $stmt->close();
+  $conn->close();
 ?>

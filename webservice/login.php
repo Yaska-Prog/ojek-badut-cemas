@@ -44,6 +44,10 @@
       $result = $stmt->get_result();
       if($result->num_rows == 0){
         echo json_encode(["status"=>"Fail", "message"=>"Akun tidak ditemukan"]);
+
+        $stmt->close();
+        $conn->close();
+        die;
       }
       else{
         $role = "Merchant";
@@ -76,4 +80,7 @@
   }
 
   echo json_encode(["status"=>"Success", "role"=>$role, "data"=>$data]);
+
+  $stmt->close();
+  $conn->close();
 ?>
