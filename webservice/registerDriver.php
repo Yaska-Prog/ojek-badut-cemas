@@ -48,19 +48,19 @@
         $stmt->execute();
 
         if($stmt->errno != 0){
-          return json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
+          echo json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
         }
-        return json_encode(["status"=>"Success"]);
+        echo json_encode(["status"=>"Success"]);
       }
       else{
-        return json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
+        echo json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
       }
     }
     else{
-      return json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
+      echo json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
     }
   }
   else{
-    return json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
+    echo json_encode(["status"=>"Fail", "message"=>"Username sudah digunakan"]);
   }
 ?>

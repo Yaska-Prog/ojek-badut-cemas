@@ -42,7 +42,7 @@
 
       $result = $stmt->get_result();
       if($result->num_rows == 0){
-        return json_encode(["status"=>"Fail", "message"=>"Akun tidak ditemukan"]);
+        echo json_encode(["status"=>"Fail", "message"=>"Akun tidak ditemukan"]);
       }
       else{
         $role = "Merchant";
@@ -74,5 +74,5 @@
     $data['tanggal_lahir'] = openssl_decrypt($data['tanggal_lahir'], $method, $key, $options, $iv);
   }
 
-  return json_encode(["status"=>"Success", "role"=>$role, "data"=>$data]);
+  echo json_encode(["status"=>"Success", "role"=>$role, "data"=>$data]);
 ?>
