@@ -18,7 +18,7 @@ import { NavigatePelangganComponent } from './navigate-pelanggan/navigate-pelang
 import { HomeDriverComponent } from './home-driver/home-driver.component';
 
 const appRoutes: Routes = [
-  {path: 'login', component: LoginComponent}, 
+  {path: '', component: LoginComponent}, 
   {path: 'register', component: RegisterComponent}, 
   {path: 'registerPelanggan', component: RegisterPelangganComponent}, 
   {path: 'registerDriver', component: RegisterDriverComponent}, 

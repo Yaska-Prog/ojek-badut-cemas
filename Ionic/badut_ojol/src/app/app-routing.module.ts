@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomePelangganComponent } from './home-pelanggan/home-pelanggan.component';
 import { HomeDriverComponent } from './home-driver/home-driver.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -20,11 +21,11 @@ const routes: Routes = [
         path: 'history-pelanggan',
         loadChildren: () => import('./history-pelanggan/history-pelanggan.module').then( m => m.HistoryPelangganPageModule)
       },
+      {
+        path: 'order-ride',
+        loadChildren: () => import('./order-ride/order-ride.module').then( m => m.OrderRidePageModule)
+      },
     ], 
-  },
-  {
-    path: 'order-ride',
-    loadChildren: () => import('./order-ride/order-ride.module').then( m => m.OrderRidePageModule)
   },
   {
     path: 'home-driver', 

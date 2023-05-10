@@ -9,6 +9,5 @@ export class AppComponent {
   username = "Samting"
   role=""
 
-
   constructor() {}
 }

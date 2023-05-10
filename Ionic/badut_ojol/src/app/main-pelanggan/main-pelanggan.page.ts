@@ -13,6 +13,7 @@ export class MainPelangganPage implements OnInit {
   ngOnInit() {
   }
   orderRide(){
-    this.router.navigate(['/order-ride'])
+    console.log("Clicked!");
+    this.router.navigate(["order-ride"]);
   }
 }
