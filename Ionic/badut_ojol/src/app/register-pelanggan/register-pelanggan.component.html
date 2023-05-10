@@ -4,7 +4,7 @@
     <ion-card>
       <ion-item>
         <ion-input
-        id="username"
+        [(ngModel)]="username"
         label="Username"
         labelPlacement="floating"
         [counter]="true"
@@ -15,7 +15,7 @@
     <ion-card>
       <ion-item>
         <ion-input
-        id="password"
+        [(ngModel)]="password"
         label="Password"
         labelPlacement="floating"
         type="password">
@@ -25,7 +25,7 @@
     <ion-card>
       <ion-item>
         <ion-input
-        id="re_password"
+        [(ngModel)]="re_password"
         label="Re-Type password"
         labelPlacement="floating"
         type="password">
@@ -35,7 +35,7 @@
     <ion-card>
       <ion-item>
         <ion-input
-        id="full_name"
+        [(ngModel)]="nama_lengkap"
         label="Nama lengkap"
         labelPlacement="floating">
         </ion-input>
@@ -43,14 +43,11 @@
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-input
-        id="tanggal_lahir"
-        label="Tanggal lahir"
-        labelPlacement="floating">
+        <ion-input [(ngModel)]="tanggal_lahir" label="Tanggal lahir" labelPlacement="floating">
         </ion-input>
       </ion-item>
     </ion-card>
-    <ion-button color="success" expand="full" shape="round" routerLink="/registerPelanggan">
+    <ion-button color="success" expand="full" shape="round" (click)="register()">
       Register
     </ion-button>
   </ion-content>

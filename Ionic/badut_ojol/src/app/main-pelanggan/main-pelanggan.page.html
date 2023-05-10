@@ -20,12 +20,12 @@
         <ion-col>
           <ion-grid style="display: flex; align-items: center; height: 100%; border: 1px solid white; justify-content: space-around;">
             <ion-row>
-              <ion-col>
+              <ion-col routerLink="/home-pelanggan/top-up">
                 <ion-icon name="wallet-outline" style="font-size: 24px;"></ion-icon>
                 <br>
                 <ion-label>Top up</ion-label>
               </ion-col>
-              <ion-col>
+              <ion-col routerLink="/home-pelanggan/history-pelanggan">
                 <ion-icon name="newspaper-outline" style="font-size: 24px;"></ion-icon>
                 <ion-label>History</ion-label>
               </ion-col>
@@ -43,7 +43,7 @@
   <h1>Apa yang ingin anda lakukan hari ini?</h1>
   <ion-grid>
     <ion-row>
-      <ion-col routerLink="/order-ride">
+      <ion-col routerLink="/home-pelanggan/order-ride">
         <div class="col_content_main">
           <ion-icon name="bicycle-outline" style="font-size: 164px;"></ion-icon>
           <ion-label>Pesan ojek</ion-label>
@@ -58,4 +58,14 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Pesanan go-ride mu!</ion-card-subtitle>
+      <ion-card-title>Status: Sedang menunggu</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>Nikmati perjalananmu dengan nyaman dan aman dengan menggunakan go ride kami!</ion-card-content>
+    <ion-button fill="clear" routerLink="/home-pelanggan/detail-order-pelanggan">Lihat lebih lanjut</ion-button>
+  </ion-card>
 </ion-content>

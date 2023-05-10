@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>top-up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="width: 75%; margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px;">
+    <h2>Silahkan masukkan nominal yang ingin di top up!</h2>
+    <ion-input
+  label="Nominal"
+  labelPlacement="floating"
+  type="number"
+  ></ion-input>
+  <ion-input
+  label="Konfirmasi password"
+  labelPlacement="floating"
+  type="password"
+  ></ion-input>
+  </div>
+  <br> <br>
+  <ion-button color="success" expand="full" shape="round">
+    Top up!
+  </ion-button>
+</ion-content>

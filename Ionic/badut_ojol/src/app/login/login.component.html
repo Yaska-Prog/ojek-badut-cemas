@@ -1,13 +1,20 @@
 <ion-app>
   <ion-card>
     <ion-item>
-      <ion-input name="username" placeholder="Input your username">
+      <ion-input 
+      name="username"
+      [(ngModel)]="username"
+      placeholder="Input your username">
       </ion-input>
     </ion-item>
     <ion-item>
-      <ion-input name="password" placeholder="Input your password" type="password"></ion-input>
+      <ion-input 
+      name="password" 
+      [(ngModel)]="password"
+      placeholder="Input your password" 
+      type="password"></ion-input>
     </ion-item>
-    <ion-button type="submit" expand="block" shape="round" color="primary" routerLink="/home-driver">Login</ion-button>
+    <ion-button type="submit" expand="block" shape="round" color="primary" (click)="login()">Login</ion-button>
     <ion-text color="secondary" routerLink="/register">
       <h5>Belum punya akun? Register disini!</h5>
     </ion-text>

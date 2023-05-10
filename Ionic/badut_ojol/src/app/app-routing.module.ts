@@ -29,6 +29,14 @@ const routes: Routes = [
         path: 'order-ride',
         loadChildren: () => import('./order-ride/order-ride.module').then( m => m.OrderRidePageModule)
       },
+      {
+        path: 'top-up',
+        loadChildren: () => import('./top-up/top-up.module').then( m => m.TopUpPageModule)
+      },
+      {
+        path: 'detail-order-pelanggan',
+        loadChildren: () => import('./detail-order-pelanggan/detail-order-pelanggan.module').then( m => m.DetailOrderPelangganPageModule)
+      },
     ], 
   },
   {
@@ -48,8 +56,7 @@ const routes: Routes = [
         loadChildren: () => import('./profile-driver/profile-driver.module').then( m => m.ProfileDriverPageModule)
       },
     ]
-  },   
-  
+  },
 ];
 
 @NgModule({

@@ -5,9 +5,50 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile-pelanggan</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h1>Edit Profile pelanggan!</h1>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        label="Username"
+        labelPlacement="floating"
+        [counter]="true"
+        maxLength="40">
+      </ion-input>
+    </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        label="Masukkan password baru"
+        labelPlacement="floating"
+        type="password">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        label="Re-Type password"
+        labelPlacement="floating"
+        type="password">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input
+        label="Nama lengkap"
+        labelPlacement="floating">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input label="Tanggal lahir" labelPlacement="floating">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-button color="success" expand="full" shape="round">
+      Edit Profile!
+    </ion-button>
 </ion-content>

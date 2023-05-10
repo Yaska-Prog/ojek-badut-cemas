@@ -6,6 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule } from '@angular/common/http';
 
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
@@ -16,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { HomePelangganComponent } from './home-pelanggan/home-pelanggan.component';
 import { NavigatePelangganComponent } from './navigate-pelanggan/navigate-pelanggan.component';
 import { HomeDriverComponent } from './home-driver/home-driver.component';
+import { PelangganService } from './pelanggan.service';
 
 const appRoutes: Routes = [
   {path: '', component: LoginComponent}, 
@@ -30,8 +33,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, RegisterComponent, RegisterPelangganComponent, RegisterDriverComponent, RegisterMerchantComponent, LoginComponent, HomePelangganComponent, NavigatePelangganComponent, HomeDriverComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, RouterModule.forRoot(appRoutes)],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [BrowserModule, IonicModule.forRoot(), HttpClientModule, AppRoutingModule, RouterModule.forRoot(appRoutes), FormsModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, PelangganService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
