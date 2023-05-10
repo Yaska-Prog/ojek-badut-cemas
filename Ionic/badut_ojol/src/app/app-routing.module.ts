@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('./history-pelanggan/history-pelanggan.module').then( m => m.HistoryPelangganPageModule)
       },
       {
+        path: 'profile-pelanggan',
+        loadChildren: () => import('./profile-pelanggan/profile-pelanggan.module').then( m => m.ProfilePelangganPageModule)
+      },
+      {
         path: 'order-ride',
         loadChildren: () => import('./order-ride/order-ride.module').then( m => m.OrderRidePageModule)
       },
@@ -35,8 +39,17 @@ const routes: Routes = [
         path: 'main-driver',
         loadChildren: () => import('./main-driver/main-driver.module').then( m => m.MainDriverPageModule)
       },
+      {
+        path: 'history-driver',
+        loadChildren: () => import('./history-driver/history-driver.module').then( m => m.HistoryDriverPageModule)
+      },
+      {
+        path: 'profile-driver',
+        loadChildren: () => import('./profile-driver/profile-driver.module').then( m => m.ProfileDriverPageModule)
+      },
     ]
-  }, 
+  },   
+  
 ];
 
 @NgModule({
