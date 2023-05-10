@@ -1,4 +1,5 @@
 <?php
+  header("Access-Control-Allow-Origin: *");
   $conn = new mysqli('localhost', 'root', '', 'badut_ojol');
 
   $alamat_jemput = $_POST['alamat_jemput'];
