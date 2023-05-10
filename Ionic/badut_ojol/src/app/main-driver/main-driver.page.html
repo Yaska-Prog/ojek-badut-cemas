@@ -1,15 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>main-driver</ion-title>
+    <ion-title>List Order</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Orderan telah menunggumu!</ion-title>
+      <ion-title size="large">main-driver</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-segment value="default">
+    <ion-segment-button value="default">
+      <ion-label>Ride</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment">
+      <ion-label>Food</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
   <ion-card>
     <ion-card-header>
@@ -17,7 +26,7 @@
       <ion-card-subtitle>Manyar - GM (2,14 km)</ion-card-subtitle>
       <ion-card-subtitle>Rp 42000</ion-card-subtitle>
     </ion-card-header>
-  
+
     <ion-button fill="clear">Lihat Detail</ion-button>
     <ion-button fill="clear">Terima Order</ion-button>
   </ion-card>
@@ -28,11 +37,11 @@
       <ion-card-subtitle>Pizza Hut - Rungkut (2,14 km)</ion-card-subtitle>
       <ion-card-subtitle>Rp 142000</ion-card-subtitle>
     </ion-card-header>
-  
+
     <ion-card-content>
       1 Pizza Reguler, 1 Milkshake
     </ion-card-content>
-  
+
     <ion-button fill="clear">Lihat Detail</ion-button>
     <ion-button fill="clear">Terima Order</ion-button>
   </ion-card>

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>profile-driver</ion-title>
+    <ion-title>Profil Driver</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +10,55 @@
       <ion-title size="large">profile-driver</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
+  <ion-text>
+    <h3>Profil</h3>
+  </ion-text>
+
+  <ion-img src="https://emojigraph.org/media/joypixels/clown-face_1f921.png"></ion-img>
+
+  <ion-list>
+    <ion-item>
+      <ion-input label="Nama Lengkap" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="Vincent">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Tanggal Lahir" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="Vincent">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Username" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="Vincent">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Password" labelPlacement="stacked" type="password" [clearInput]="true" [disabled]="true"
+        value="Vincent">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-text>
+    <h3>Kendaraan</h3>
+  </ion-text>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Plat Nomor" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="AL 1234 JR">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Merk Kendaraan" labelPlacement="stacked" [clearInput]="true" [disabled]="true"
+        value="Honda Supra">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Warna Kendaraan" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="Biru">
+      </ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>
