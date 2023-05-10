@@ -1,8 +1,8 @@
 <?php
   $conn = new mysqli('localhost', 'root', '', 'badut_ojol');
 
-  $username = $_GET['username'];
-  $password = $_GET['password'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
 
   $method = "AES-128-CTR";
   $options = 0;
@@ -74,5 +74,5 @@
     $data['tanggal_lahir'] = openssl_decrypt($data['tanggal_lahir'], $method, $key, $options, $iv);
   }
 
-  echo json_encode(["status"=>"Success", "role"=>$role, "data"=>$data]);
+  return json_encode(["status"=>"Success", "role"=>$role, "data"=>$data]);
 ?>
