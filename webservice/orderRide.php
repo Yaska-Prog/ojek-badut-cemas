@@ -25,10 +25,9 @@
   if($stmt->errno == 0){
     $id = $stmt->insert_id;
 
-    $sql = "SELECT o.id AS id, o.alamat_jemput AS alamat_jemput, o.alamat_tujuan AS alamat_tujuan, o.jarak AS jarak, o.tarif AS tarif, o.status AS status, c.nama_lengkap AS customer_name, d.nama_lengkap as driver_name
+    $sql = "SELECT o.id AS id, o.alamat_jemput AS alamat_jemput, o.alamat_tujuan AS alamat_tujuan, o.jarak AS jarak, o.tarif AS tarif, o.status AS status, c.nama_lengkap AS customer_name
             FROM order_rides o
             INNER JOIN customers c on o.customer_id = c.id
-            INNER JOIN drivers d on o.driver_id = d.id
             WHERE o.id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
@@ -41,7 +40,6 @@
       $data['alamat_jemput'] = openssl_encrypt($data['alamat_jemput'], $method, $key, $options, $iv);
       $data['alamat_tujuan'] = openssl_encrypt($data['alamat_tujuan'], $method, $key, $options, $iv);
       $data['customer_name'] = openssl_encrypt($data['customer_name'], $method, $key, $options, $iv);
-      $data['driver_name'] = openssl_encrypt($data['driver_name'], $method, $key, $options, $iv);
 
       echo json_encode(["status"=>"Success", "data"=>$data]);
     }
