@@ -4,6 +4,7 @@
 
   $id = $_POST['id'];
   $driver_id = $_POST['driver_id'];
+  $status = "Proses";
 
   $method = "AES-128-CTR";
   $options = 0;
@@ -12,7 +13,7 @@
 
   $sql = "UPDATE order_rides SET driver_id = ?, status = ? WHERE id = ?";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("isi", $driver_id, "Proses", $id);
+  $stmt->bind_param("isi", $driver_id, $status, $id);
   $stmt->execute();
 
   if($stmt->errno == 0){

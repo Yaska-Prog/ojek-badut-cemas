@@ -7,6 +7,7 @@
   $jarak = $_POST['jarak'];
   $tarif = $_POST['tarif'];
   $customer_id = $_POST['customer_id'];
+  $status = "Mencari driver";
 
   $method = "AES-128-CTR";
   $options = 0;
@@ -18,7 +19,7 @@
 
   $sql = "INSERT INTO order_rides (alamat_jemput, alamat_tujuan, jarak, tarif, status, customer_id) VALUES (?, ?, ?, ?, ?, ?)";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("ssdisi", $alamat_jemput, $alamat_tujuan, $jarak, $tarif, "Mencari driver", $customer_id);
+  $stmt->bind_param("ssdisi", $alamat_jemput, $alamat_tujuan, $jarak, $tarif, $status, $customer_id);
   $stmt->execute();
 
   if($stmt->errno == 0){

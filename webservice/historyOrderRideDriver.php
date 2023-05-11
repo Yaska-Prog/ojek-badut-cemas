@@ -3,6 +3,7 @@
   $conn = new mysqli('localhost', 'root', '', 'badut_ojol');
 
   $driver_id = $_POST['id'];
+  $status = "Selesai";
 
   $method = "AES-128-CTR";
   $options = 0;
@@ -15,7 +16,7 @@
           INNER JOIN drivers d on o.driver_id = d.id
           WHERE status = ? AND d.id = ?";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("si", "Selesai", $driver_id);
+  $stmt->bind_param("si", $status, $driver_id);
   $stmt->execute();
 
   $data = array();
