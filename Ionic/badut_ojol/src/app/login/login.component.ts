@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
             }
             this.router.navigate(['/home-pelanggan/main-pelanggan'])
           }
-          else if (role == 'Driver'){
+          else if (role == 'Driver') {
             this.storage.set('username', dataRes['data']['username'])
             this.storage.set('id_driver', dataRes['data']['id'])
             this.storage.set('nama_lengkap', dataRes['data']['nama_lengkap'])
@@ -74,6 +74,17 @@ export class LoginComponent implements OnInit {
               this.storage.set('id_order', dataRes['data']['order_id'])
             }
             this.router.navigate(['/home-driver/main-driver'])
+          }
+          else if (role == 'Merchant') {
+            this.storage.set('username', dataRes['data']['username'])
+            this.storage.set('id_user', dataRes['data']['id'])
+            this.storage.set('saldo', dataRes['data']['saldo'])
+            this.storage.set('nama_lengkap', dataRes['data']['nama_lengkap'])
+            this.storage.set('tanggal_lahir', dataRes['data']['tanggal_lahir'])
+            this.storage.set('nama_resto', dataRes['data']['nama_resto'])
+            this.storage.set('alamat', dataRes['data']['alamat'])
+            this.storage.set('role', dataRes['role'])
+            this.router.navigate(['/home-merchant/main-merchant'])
           }
         }
         else {

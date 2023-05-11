@@ -21,6 +21,7 @@ import { HomeDriverComponent } from './home-driver/home-driver.component';
 import { PelangganService } from './pelanggan.service';
 import { DriverService } from './driver.service';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { HomeMerchantComponent } from './home-merchant/home-merchant.component';
 
 
 const appRoutes: Routes = [
@@ -31,11 +32,12 @@ const appRoutes: Routes = [
   {path: 'registerMerchant', component: RegisterMerchantComponent},
   {path: 'homePelanggan', component: HomePelangganComponent},
   {path: 'navigatePelanggan', component: NavigatePelangganComponent}, 
-  {path: 'homeDriver', component: HomeDriverComponent}
+  {path: 'homeDriver', component: HomeDriverComponent}, 
+  {path: 'homeMerchant', component: HomeMerchantComponent}
 ]
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, RegisterPelangganComponent, RegisterDriverComponent, RegisterMerchantComponent, LoginComponent, HomePelangganComponent, NavigatePelangganComponent, HomeDriverComponent],
+  declarations: [AppComponent, RegisterComponent, RegisterPelangganComponent, RegisterDriverComponent, RegisterMerchantComponent, LoginComponent, HomePelangganComponent, NavigatePelangganComponent, HomeDriverComponent, HomeMerchantComponent],
   imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), HttpClientModule, AppRoutingModule, RouterModule.forRoot(appRoutes), FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, PelangganService, DriverService],
   bootstrap: [AppComponent],

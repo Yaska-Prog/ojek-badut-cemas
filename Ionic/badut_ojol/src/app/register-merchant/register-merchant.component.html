@@ -8,7 +8,8 @@
         label="Username"
         labelPlacement="floating"
         [counter]="true"
-        maxLength="40">
+        [(ngModel)]="username"
+      maxLength="40">
       </ion-input>
     </ion-item>
     </ion-card>
@@ -16,6 +17,7 @@
       <ion-item>
         <ion-input
         id="password"
+        [(ngModel)]="password"
         label="Password"
         labelPlacement="floating"
         type="password">
@@ -26,6 +28,7 @@
       <ion-item>
         <ion-input
         id="re_password"
+        [(ngModel)]="re_password"
         label="Re-Type password"
         labelPlacement="floating"
         type="password">
@@ -36,6 +39,7 @@
       <ion-item>
         <ion-input
         id="full_name"
+        [(ngModel)]="nama_lengkap"
         label="Nama lengkap"
         labelPlacement="floating">
         </ion-input>
@@ -45,6 +49,7 @@
       <ion-item>
         <ion-input
         id="tanggal_lahir"
+        [(ngModel)]="tanggal_lahir"
         label="Tanggal lahir"
         labelPlacement="floating">
         </ion-input>
@@ -54,6 +59,7 @@
       <ion-item>
         <ion-input
         id="nama_resto"
+        [(ngModel)]="nama_resto"
         label="Nama Restoran"
         labelPlacement="floating">
         </ion-input>
@@ -63,12 +69,17 @@
       <ion-item>
         <ion-input
         id="alamat_resto"
+        [(ngModel)]="alamat_resto"
         label="Alamat Restoran"
         labelPlacement="floating">
         </ion-input>
       </ion-item>
     </ion-card>
-    <ion-button color="danger" expand="full" shape="round">
+    <ion-button 
+    color="danger"
+    expand="full" 
+    shape="round"
+    (click)="register()">
       Register
     </ion-button>
   </ion-content>

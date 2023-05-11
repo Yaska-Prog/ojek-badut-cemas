@@ -40,7 +40,7 @@ export class RegisterPelangganComponent implements OnInit {
     await alert.present();
   }
   register() {
-    if (this.re_password = this.password) {
+    if (this.re_password == this.password) {
       this.servis.registerPelanggan(this.username, this.password, this.nama_lengkap, this.tanggal_lahir).subscribe(
         (data) => {
           var dataRes: any = data
