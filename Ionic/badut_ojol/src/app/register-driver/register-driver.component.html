@@ -3,72 +3,53 @@
     <h1>Registrasi Driver!</h1>
     <ion-card>
       <ion-item>
-        <ion-input
-        id="username"
-        label="Username"
-        labelPlacement="floating"
-        [counter]="true"
-        maxLength="40">
-      </ion-input>
-    </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-input
-        id="password"
-        label="Password"
-        labelPlacement="floating"
-        type="password">
+        <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating" [counter]="true" maxLength="40">
         </ion-input>
       </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-input
-        id="re_password"
-        label="Re-Type password"
-        labelPlacement="floating"
-        type="password">
+        <ion-input [(ngModel)]="password" label="Password" labelPlacement="floating" type="password">
         </ion-input>
       </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-input
-        id="full_name"
-        label="Nama lengkap"
-        labelPlacement="floating">
+        <ion-input [(ngModel)]="re_password" label="Re-Type password" labelPlacement="floating" type="password">
         </ion-input>
       </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-input
-        id="tanggal_lahir"
-        label="Tanggal Lahir"
-        labelPlacement="floating">
+        <ion-input [(ngModel)]="nama_lengkap" label="Nama lengkap" labelPlacement="floating">
         </ion-input>
       </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-input
-        id="merk_kendaraan"
-        label="Merk Kendaraan"
-        labelPlacement="floating">
+        <ion-input [(ngModel)]="tanggal_lahir" id="tanggal_lahir" label="Tanggal Lahir" labelPlacement="floating">
         </ion-input>
       </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-input
-        id="warna_kendaraan"
-        label="Warna Kendaraan"
-        labelPlacement="floating">
+        <ion-input [(ngModel)]="plat_nomor" label="Plat Nomor" labelPlacement="floating">
         </ion-input>
       </ion-item>
     </ion-card>
-    <ion-button color="tertiary" expand="full" shape="round" routerLink="/registerPelanggan">
+    <ion-card>
+      <ion-item>
+        <ion-input [(ngModel)]="merk_kendaraan" label="Merk Kendaraan" labelPlacement="floating">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-input [(ngModel)]="warna_kendaraan" label="Warna Kendaraan" labelPlacement="floating">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-button color="success" expand="full" shape="round" (click)="registerDriver()">
       Register
     </ion-button>
   </ion-content>

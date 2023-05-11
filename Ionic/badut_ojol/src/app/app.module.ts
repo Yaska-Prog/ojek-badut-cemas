@@ -19,6 +19,7 @@ import { HomePelangganComponent } from './home-pelanggan/home-pelanggan.componen
 import { NavigatePelangganComponent } from './navigate-pelanggan/navigate-pelanggan.component';
 import { HomeDriverComponent } from './home-driver/home-driver.component';
 import { PelangganService } from './pelanggan.service';
+import { DriverService } from './driver.service';
 import { IonicStorageModule } from '@ionic/storage-angular';
 
 
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent, RegisterComponent, RegisterPelangganComponent, RegisterDriverComponent, RegisterMerchantComponent, LoginComponent, HomePelangganComponent, NavigatePelangganComponent, HomeDriverComponent],
   imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), HttpClientModule, AppRoutingModule, RouterModule.forRoot(appRoutes), FormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, PelangganService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, PelangganService, DriverService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

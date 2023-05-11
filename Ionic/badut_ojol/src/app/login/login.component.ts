@@ -54,10 +54,26 @@ export class LoginComponent implements OnInit {
             this.storage.set('nama_lengkap', dataRes['data']['nama_lengkap'])
             this.storage.set('tanggal_lahir', dataRes['data']['tanggal_lahir'])
             this.storage.set('role', dataRes['role'])
+
             if (dataRes['data']['order_id'] != -1) {
               this.storage.set('id_order', dataRes['data']['order_id'])
             }
             this.router.navigate(['/home-pelanggan/main-pelanggan'])
+          }
+          else if (role == 'Driver'){
+            this.storage.set('username', dataRes['data']['username'])
+            this.storage.set('id_driver', dataRes['data']['id'])
+            this.storage.set('nama_lengkap', dataRes['data']['nama_lengkap'])
+            this.storage.set('tanggal_lahir', dataRes['data']['tanggal_lahir'])
+            this.storage.set('plat_nomor', dataRes['data']['plat_nomor'])
+            this.storage.set('merk_kendaraan', dataRes['data']['merk_kendaraan'])
+            this.storage.set('warna_kendaraan', dataRes['data']['warna_kendaraan'])
+            this.storage.set('role', dataRes['role'])
+
+            if (dataRes['data']['order_id'] != -1) {
+              this.storage.set('id_order', dataRes['data']['order_id'])
+            }
+            this.router.navigate(['/home-driver/main-driver'])
           }
         }
         else {
