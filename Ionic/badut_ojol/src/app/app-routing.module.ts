@@ -34,7 +34,7 @@ const routes: Routes = [
         loadChildren: () => import('./top-up/top-up.module').then( m => m.TopUpPageModule)
       },
       {
-        path: 'detail-order-pelanggan',
+        path: 'detail-order-pelanggan/:id',
         loadChildren: () => import('./detail-order-pelanggan/detail-order-pelanggan.module').then( m => m.DetailOrderPelangganPageModule)
       },
     ], 

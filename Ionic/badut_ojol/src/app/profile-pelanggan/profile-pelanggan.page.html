@@ -9,16 +9,19 @@
     <ion-card>
       <ion-item>
         <ion-input
+        [(ngModel)]="username"
         label="Username"
         labelPlacement="floating"
         [counter]="true"
-        maxLength="40">
+        maxLength="40"
+        disabled="true">
       </ion-input>
     </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
         <ion-input
+        [(ngModel)]="password"
         label="Masukkan password baru"
         labelPlacement="floating"
         type="password">
@@ -28,6 +31,7 @@
     <ion-card>
       <ion-item>
         <ion-input
+        [(ngModel)]="re_password"
         label="Re-Type password"
         labelPlacement="floating"
         type="password">
@@ -37,6 +41,7 @@
     <ion-card>
       <ion-item>
         <ion-input
+        [(ngModel)]="nama_lengkap"
         label="Nama lengkap"
         labelPlacement="floating">
         </ion-input>
@@ -44,11 +49,18 @@
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-input label="Tanggal lahir" labelPlacement="floating">
+        <ion-input 
+        [(ngModel)]="tanggal_lahir" 
+        label="Tanggal lahir" 
+        labelPlacement="floating">
         </ion-input>
       </ion-item>
     </ion-card>
-    <ion-button color="success" expand="full" shape="round">
+    <ion-button 
+    color="success" 
+    expand="full" 
+    shape="round"
+    (click)="ubahProfil()">
       Edit Profile!
     </ion-button>
 </ion-content>

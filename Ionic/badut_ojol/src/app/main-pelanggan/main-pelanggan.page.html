@@ -40,7 +40,7 @@
     </ion-grid>
   </ion-card>
 
-  <h1>Apa yang ingin anda lakukan hari ini?</h1>
+  <h1>Apa yang ingin {{username}} lakukan hari ini?</h1>
   <ion-grid>
     <ion-row>
       <ion-col routerLink="/home-pelanggan/order-ride">
@@ -59,7 +59,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-card>
+  <ion-card *ngIf="id_order != 0" routerLink="/home-pelanggan/detail-order-pelanggan/{{id_order}}">
     <ion-card-header>
       <ion-card-subtitle>Pesanan go-ride mu!</ion-card-subtitle>
       <ion-card-title>Status: Sedang menunggu</ion-card-title>

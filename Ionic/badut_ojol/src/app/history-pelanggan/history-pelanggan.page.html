@@ -5,23 +5,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <ion-card *ngFor="let history of histories">
     <ion-card-header>
-      <ion-card-title>Perjalanan menuju ubaya</ion-card-title>
-      <ion-card-subtitle>Rp. 50.000</ion-card-subtitle>
+      <ion-card-title>Perjalanan menuju {{history.alamat_tujuan}}</ion-card-title>
+      <ion-card-subtitle>Rp. {{history.alamat_tujuan}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      10 Mei 2023
-    </ion-card-content>
-    <ion-button fill="clear">Lihat lebih lanjut</ion-button>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Perjalanan menuju ubaya</ion-card-title>
-      <ion-card-subtitle>Rp. 50.000</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      10 Mei 2023
+      10 Mei 2023 (dummy)
     </ion-card-content>
     <ion-button fill="clear">Lihat lebih lanjut</ion-button>
   </ion-card>

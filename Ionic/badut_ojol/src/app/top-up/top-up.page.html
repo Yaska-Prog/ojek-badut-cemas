@@ -9,17 +9,23 @@
     <h2>Silahkan masukkan nominal yang ingin di top up!</h2>
     <ion-input
   label="Nominal"
+  [(ngModel)]="nominal"
   labelPlacement="floating"
   type="number"
   ></ion-input>
   <ion-input
+  [(ngModel)]="password"
   label="Konfirmasi password"
   labelPlacement="floating"
   type="password"
   ></ion-input>
   </div>
   <br> <br>
-  <ion-button color="success" expand="full" shape="round">
+  <ion-button 
+  color="success" 
+  expand="full" 
+  shape="round"
+  (click)="topUp()">
     Top up!
   </ion-button>
 </ion-content>

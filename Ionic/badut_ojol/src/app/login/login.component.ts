@@ -2,21 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PelangganService } from '../pelanggan.service';
 import { AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent  implements OnInit {
+export class LoginComponent implements OnInit {
 
-  username=""
-  password=""
+  username = ""
+  password = ""
 
 
-  constructor(private router: Router, public servis: PelangganService, private alertController: AlertController) { }
+  constructor(private router: Router, public servis: PelangganService, private alertController: AlertController, private storage: Storage) { }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    await this.storage.create()
+  }
   async presentAlertSuccess() {
     const alert = await this.alertController.create({
       header: 'Sukses!',
@@ -37,15 +40,27 @@ export class LoginComponent  implements OnInit {
 
     await alert.present();
   }
-  login(){
+  login() {
     this.servis.login(this.username, this.password).subscribe(
       (data) => {
         var dataRes: any = data
-        if(dataRes['status'] == "Success"){
+        if (dataRes['status'] == "Success") {
           this.presentAlertSuccess()
-          this.router.navigate(['/home-pelanggan/main-pelanggan'])
+          var role = dataRes['role']
+          if (role == 'Customer') {
+            this.storage.set('username', dataRes['data']['username'])
+            this.storage.set('id_user', dataRes['data']['id'])
+            this.storage.set('saldo', dataRes['data']['saldo'])
+            this.storage.set('nama_lengkap', dataRes['data']['nama_lengkap'])
+            this.storage.set('tanggal_lahir', dataRes['data']['tanggal_lahir'])
+            this.storage.set('role', dataRes['role'])
+            if (dataRes['data']['order_id'] != -1) {
+              this.storage.set('id_order', dataRes['data']['order_id'])
+            }
+            this.router.navigate(['/home-pelanggan/main-pelanggan'])
+          }
         }
-        else{
+        else {
           this.presentAlertFailed()
         }
       }
