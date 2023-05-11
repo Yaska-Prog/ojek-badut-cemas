@@ -10,11 +10,11 @@
   $key = "BadutISACemas";
   $iv = "1234567812345678";
 
-  $sql = "SELECT o.id AS id, o.alamat_jemput AS alamat_jemput, o.alamat_tujuan AS alamat_tujuan, o.jarak AS jarak, o.tarif AS tarif, c.nama_lengkap AS customer_name, d.nama_lengkap as driver_name
+  $sql = "SELECT o.id AS id, o.alamat_jemput AS alamat_jemput, o.alamat_tujuan AS alamat_tujuan, o.jarak AS jarak, o.tarif AS tarif, o.status AS status, c.nama_lengkap AS customer_name, d.nama_lengkap as driver_name
           FROM order_rides o
           INNER JOIN customers c on o.customer_id = c.id
           INNER JOIN drivers d on o.driver_id = d.id
-          WHERE status = ? AND d.id = ?";
+          WHERE o.status = ? AND d.id = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("si", $status, $driver_id);
   $stmt->execute();
