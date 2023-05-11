@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 07:05 AM
+-- Generation Time: May 11, 2023 at 07:24 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -37,13 +37,6 @@ CREATE TABLE `customers` (
   `saldo` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`id`, `username`, `password`, `nama_lengkap`, `tanggal_lahir`, `saldo`) VALUES
-(1, 'XQbOtQ==', '499040539588de80b9ffe324cdaa2caff85eb5e15a6ae35e5a92f5114cb1cb40', 'ZRDBuq6KUBCpyebY', 'HU+f6ffSCVPJhQ==', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -60,13 +53,6 @@ CREATE TABLE `drivers` (
   `merk_kendaraan` varchar(200) DEFAULT NULL,
   `warna_kendaraan` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `drivers`
---
-
-INSERT INTO `drivers` (`id`, `username`, `password`, `nama_lengkap`, `tanggal_lahir`, `plat_nomor`, `merk_kendaraan`, `warna_kendaraan`) VALUES
-(1, 'XQbOtes=', '499040539588de80b9ffe324cdaa2caff85eb5e15a6ae35e5a92f5114cb1cb40', 'ZRDBuq6KUBCpyebY', 'HU+f6ffSCVPJhQ==', 'Y06W4+imaw==', 'Vario', 'Merah');
 
 -- --------------------------------------------------------
 
@@ -96,13 +82,6 @@ CREATE TABLE `merchants` (
   `nama_resto` varchar(200) DEFAULT NULL,
   `alamat` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `merchants`
---
-
-INSERT INTO `merchants` (`id`, `username`, `password`, `nama_lengkap`, `tanggal_lahir`, `nama_resto`, `alamat`) VALUES
-(1, 'XQbOteg=', '499040539588de80b9ffe324cdaa2caff85eb5e15a6ae35e5a92f5114cb1cb40', 'ZRDBuq6KUBCpyebY', 'HU+f6ffSCVPJhQ==', 'XRrcr7XT', 'RR7DurSpVBye3ubE3MQ=');
 
 -- --------------------------------------------------------
 
@@ -150,13 +129,6 @@ CREATE TABLE `order_rides` (
   `customer_id` int(11) NOT NULL,
   `driver_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `order_rides`
---
-
-INSERT INTO `order_rides` (`id`, `alamat_jemput`, `alamat_tujuan`, `jarak`, `tarif`, `status`, `customer_id`, `driver_id`) VALUES
-(0, 'alamat 1', 'alamat 2', '3', 5000, 'Selesai', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -229,9 +201,27 @@ ALTER TABLE `drivers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `merchants`
 --
 ALTER TABLE `merchants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `order_foods`
+--
+ALTER TABLE `order_foods`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_rides`
+--
+ALTER TABLE `order_rides`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
