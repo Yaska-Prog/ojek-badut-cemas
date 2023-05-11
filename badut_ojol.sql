@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 11:22 AM
+-- Generation Time: May 11, 2023 at 07:05 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -118,7 +118,7 @@ CREATE TABLE `order_foods` (
   `total_bayar` double DEFAULT NULL,
   `status` varchar(200) DEFAULT NULL,
   `customer_id` int(11) NOT NULL,
-  `drivers_id` int(11) NOT NULL,
+  `drivers_id` int(11) DEFAULT NULL,
   `merchant_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -148,8 +148,15 @@ CREATE TABLE `order_rides` (
   `tarif` double DEFAULT NULL,
   `status` varchar(200) DEFAULT NULL,
   `customer_id` int(11) NOT NULL,
-  `driver_id` int(11) NOT NULL
+  `driver_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order_rides`
+--
+
+INSERT INTO `order_rides` (`id`, `alamat_jemput`, `alamat_tujuan`, `jarak`, `tarif`, `status`, `customer_id`, `driver_id`) VALUES
+(0, 'alamat 1', 'alamat 2', '3', 5000, 'Selesai', 1, 1);
 
 --
 -- Indexes for dumped tables
