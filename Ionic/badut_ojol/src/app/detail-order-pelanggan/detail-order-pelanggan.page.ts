@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { PelangganService } from '../pelanggan.service';
 import { ActivatedRoute } from '@angular/router';
 
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import { TDocumentDefinitions } from 'pdfmake/interfaces';
+
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+
 @Component({
   selector: 'app-detail-order-pelanggan',
   templateUrl: './detail-order-pelanggan.page.html',
@@ -9,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailOrderPelangganPage implements OnInit {
 
-  id = ""
+  id: number = 0
   status = ""
   pemesan = ""
   driver = ""
@@ -17,11 +23,44 @@ export class DetailOrderPelangganPage implements OnInit {
   alamat_tujuan = ""
   jarak = ""
   tarif = ""
+
+  pdfObj = null
+
+
   constructor(public servis: PelangganService, public route: ActivatedRoute) { }
 
   ngOnInit() {
-    var id: number = this.route.snapshot.params['id']
-    this.updateData(id)
+    this.id = this.route.snapshot.params['id']
+    this.updateData(this.id)
+  }
+
+  pdfDownload() {
+    const documentDefinition: TDocumentDefinitions = {
+      content: [
+        {
+          text: 'Order Receipt:',
+          style: 'header', 
+        },
+        'ID Order: ' + this.id,
+        'Status Order: ' + this.status,
+        'Nama Pemesan: ' + this.pemesan,
+        'Nama Driver: ' + this.driver,
+        'Alamat penjemputan: ' + this.alamat_jemput,
+        'Alamat tujuan: ' + this.alamat_tujuan,
+        'Jarak: ' + this.jarak + ' Kilometer',
+        'Tarif: Rp. ' + this.tarif,
+        'Terima kasih sudah menggunakan go ride kami! Semoga sukses selalu'
+      ],
+      styles: {
+        header: {
+          fontSize: 28,
+          bold: true,
+          alignment: 'center'
+        }
+      }
+    };
+    var obj = pdfMake.createPdf(documentDefinition)
+    obj.download('demo.pdf')
   }
   updateData(id: number) {
     this.servis.detailOrder(id.toString()).subscribe(
@@ -38,7 +77,7 @@ export class DetailOrderPelangganPage implements OnInit {
           if (dataRes['data']['driver_name'] != "") {
             this.driver = dataRes['data']['driver_name']
           }
-          else{
+          else {
             this.driver = "Belum di accept!"
           }
         }
