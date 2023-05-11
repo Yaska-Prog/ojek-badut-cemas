@@ -4,10 +4,18 @@
 
   $id = $_POST['id'];
   $nominal = $_POST['nominal'];
+  $password = $_POST['password'];
 
-  $sql = "SELECT saldo FROM customers WHERE id = ?";
+  $method = "AES-128-CTR";
+  $options = 0;
+  $key = "BadutISACemas";
+  $iv = "1234567812345678";
+
+  $password = openssl_encrypt($password, $method, $key, $options, $iv);
+
+  $sql = "SELECT saldo FROM customers WHERE id = ? AND password = SHA2(?, 256)";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("i", $id);
+  $stmt->bind_param("is", $id, $password);
   $stmt->execute();
 
   if($stmt->errno == 0){
@@ -29,7 +37,7 @@
       }
     }
     else{
-      echo json_encode(["status"=>"Fail", "message"=>"Data customer tidak ditemukan"]);
+      echo json_encode(["status"=>"Wrong Password", "message"=>"Password yang diinputkan salah"]);
     }
   }
   else{
