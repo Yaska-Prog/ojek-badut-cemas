@@ -22,10 +22,10 @@
     $result = $stmt->get_result();
     $data = $result->fetch_assoc();
 
-    $data['alamat_jemput'] = openssl_encrypt($data['alamat_jemput'], $method, $key, $options, $iv);
-    $data['alamat_tujuan'] = openssl_encrypt($data['alamat_tujuan'], $method, $key, $options, $iv);
-    $data['customer_name'] = openssl_encrypt($data['customer_name'], $method, $key, $options, $iv);
-    $data['driver_name'] = openssl_encrypt($data['driver_name'], $method, $key, $options, $iv);
+    $data['alamat_jemput'] = openssl_decrypt($data['alamat_jemput'], $method, $key, $options, $iv);
+    $data['alamat_tujuan'] = openssl_decrypt($data['alamat_tujuan'], $method, $key, $options, $iv);
+    $data['customer_name'] = openssl_decrypt($data['customer_name'], $method, $key, $options, $iv);
+    $data['driver_name'] = openssl_decrypt($data['driver_name'], $method, $key, $options, $iv);
 
     echo json_encode(["status"=>"Success", "data"=>$data]);
   }

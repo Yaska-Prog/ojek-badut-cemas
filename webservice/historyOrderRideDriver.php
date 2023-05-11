@@ -24,10 +24,10 @@
   if($stmt->errno == 0){
     $result = $stmt->get_result();
     while($order = $result->fetch_assoc()){
-      $order['alamat_jemput'] = openssl_encrypt($order['alamat_jemput'], $method, $key, $options, $iv);
-      $order['alamat_tujuan'] = openssl_encrypt($order['alamat_tujuan'], $method, $key, $options, $iv);
-      $order['customer_name'] = openssl_encrypt($order['customer_name'], $method, $key, $options, $iv);
-      $order['driver_name'] = openssl_encrypt($order['driver_name'], $method, $key, $options, $iv);
+      $order['alamat_jemput'] = openssl_decrypt($order['alamat_jemput'], $method, $key, $options, $iv);
+      $order['alamat_tujuan'] = openssl_decrypt($order['alamat_tujuan'], $method, $key, $options, $iv);
+      $order['customer_name'] = openssl_decrypt($order['customer_name'], $method, $key, $options, $iv);
+      $order['driver_name'] = openssl_decrypt($order['driver_name'], $method, $key, $options, $iv);
 
       array_push($data, $order);
     }
