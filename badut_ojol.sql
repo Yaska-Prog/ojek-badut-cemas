@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 07:24 AM
+-- Generation Time: May 11, 2023 at 11:53 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -108,9 +108,12 @@ CREATE TABLE `order_foods` (
 --
 
 CREATE TABLE `order_menu` (
-  `order_food_id` int(11) NOT NULL,
-  `menu_id` int(11) NOT NULL,
-  `jumlah` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `nama` varchar(200) DEFAULT NULL,
+  `harga` double DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `subtotal` double DEFAULT NULL,
+  `order_food_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -172,9 +175,8 @@ ALTER TABLE `order_foods`
 -- Indexes for table `order_menu`
 --
 ALTER TABLE `order_menu`
-  ADD PRIMARY KEY (`order_food_id`,`menu_id`),
-  ADD KEY `fk_order_foods_has_menu_menu1_idx` (`menu_id`),
-  ADD KEY `fk_order_foods_has_menu_order_foods1_idx` (`order_food_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_order_menu_order_foods1_idx` (`order_food_id`);
 
 --
 -- Indexes for table `order_rides`
@@ -219,6 +221,12 @@ ALTER TABLE `order_foods`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `order_menu`
+--
+ALTER TABLE `order_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `order_rides`
 --
 ALTER TABLE `order_rides`
@@ -246,8 +254,7 @@ ALTER TABLE `order_foods`
 -- Constraints for table `order_menu`
 --
 ALTER TABLE `order_menu`
-  ADD CONSTRAINT `fk_order_foods_has_menu_menu1` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_order_foods_has_menu_order_foods1` FOREIGN KEY (`order_food_id`) REFERENCES `order_foods` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_order_menu_order_foods1` FOREIGN KEY (`order_food_id`) REFERENCES `order_foods` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `order_rides`
