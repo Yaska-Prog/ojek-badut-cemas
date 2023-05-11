@@ -11,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class ProfilePelangganPage implements OnInit {
 
-  username=""
+  username = ""
   password = ""
   re_password = ""
   nama_lengkap = ""
@@ -46,20 +46,22 @@ export class ProfilePelangganPage implements OnInit {
 
     await alert.present();
   }
-  async ubahProfil(){
+  async ubahProfil() {
     var id = await this.storage.get('id_user')
-    this.servis.ubahProfil(id, this.nama_lengkap, this.tanggal_lahir, this.password).subscribe(
-      (data) => {
-        var dataRes: any = data
-        if(dataRes['status'] == "Success"){
-          this.storage.set('nama_lengkap', dataRes['data']['nama_lengkap'])
-          this.storage.set('tanggal_lahir', dataRes['data']['tanggal_lahir'])
-          this.presentAlertSuccess()
+    if (this.re_password = this.password) {
+      this.servis.ubahProfil(id, this.nama_lengkap, this.tanggal_lahir, this.password).subscribe(
+        (data) => {
+          var dataRes: any = data
+          if (dataRes['status'] == "Success") {
+            this.storage.set('nama_lengkap', dataRes['data']['nama_lengkap'])
+            this.storage.set('tanggal_lahir', dataRes['data']['tanggal_lahir'])
+            this.presentAlertSuccess()
+          }
+          else {
+            this.presentAlertFailed()
+          }
         }
-        else{
-          this.presentAlertFailed()
-        }
-      }
-    )
+      )
+    }
   }
 }

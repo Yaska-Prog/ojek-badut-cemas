@@ -1,66 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>profile-pelanggan</ion-title>
+    <ion-title>Profil Pelanggan</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1>Edit Profile pelanggan!</h1>
-    <ion-card>
-      <ion-item>
-        <ion-input
-        [(ngModel)]="username"
-        label="Username"
-        labelPlacement="floating"
-        [counter]="true"
-        maxLength="40"
+  <h1>Edit Profil pelanggan!</h1>
+  <ion-img src="https://emojigraph.org/media/joypixels/clown-face_1f921.png"></ion-img>
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating" [counter]="true" maxLength="40"
         disabled="true">
       </ion-input>
     </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-input
-        [(ngModel)]="password"
-        label="Masukkan password baru"
-        labelPlacement="floating"
-        type="password">
-        </ion-input>
-      </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-input
-        [(ngModel)]="re_password"
-        label="Re-Type password"
-        labelPlacement="floating"
-        type="password">
-        </ion-input>
-      </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-input
-        [(ngModel)]="nama_lengkap"
-        label="Nama lengkap"
-        labelPlacement="floating">
-        </ion-input>
-      </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-input 
-        [(ngModel)]="tanggal_lahir" 
-        label="Tanggal lahir" 
-        labelPlacement="floating">
-        </ion-input>
-      </ion-item>
-    </ion-card>
-    <ion-button 
-    color="success" 
-    expand="full" 
-    shape="round"
-    (click)="ubahProfil()">
-      Edit Profile!
-    </ion-button>
+
+    <ion-item>
+      <ion-input [(ngModel)]="password" label="Masukkan password baru" [clearInput]="true" labelPlacement="floating" type="password">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="re_password" label="Ketik ulang password baru" [clearInput]="true" labelPlacement="floating" type="password">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="nama_lengkap" label="Nama lengkap" [clearInput]="true" labelPlacement="floating">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="tanggal_lahir" label="Tanggal lahir" [clearInput]="true" labelPlacement="floating">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button color="success" expand="full" shape="round" (click)="ubahProfil()">
+    Ubah Profil
+  </ion-button>
 </ion-content>

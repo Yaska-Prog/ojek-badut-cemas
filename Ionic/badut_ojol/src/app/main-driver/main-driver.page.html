@@ -11,61 +11,48 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-segment value="default">
-    <ion-segment-button value="default">
+  <ion-segment [(ngModel)]="type" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="ride" checked>
       <ion-label>Ride</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="segment">
+    <ion-segment-button value="food">
       <ion-label>Food</ion-label>
     </ion-segment-button>
   </ion-segment>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Order Ride (Maya)</ion-card-title>
-      <ion-card-subtitle>Manyar - GM (2,14 km)</ion-card-subtitle>
-      <ion-card-subtitle>Rp 42000</ion-card-subtitle>
-    </ion-card-header>
+  <div [ngSwitch]="type">
+    <ion-list *ngSwitchCase="'ride'">
+      <ion-item *ngFor="let orderRide of orderRides; let i = index">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Order Ride ({{ orderRide['customer_name']}})</ion-card-title>
+            <ion-card-subtitle>{{ orderRide['alamat_jemput'] }} - {{ orderRide['alamat_tujuan'] }} ({{ orderRide['jarak'] }} km)</ion-card-subtitle>
+            <ion-card-subtitle>Rp. {{ orderRide['tarif']}}</ion-card-subtitle>
+          </ion-card-header>
 
-    <ion-button fill="clear">Lihat Detail</ion-button>
-    <ion-button fill="clear">Terima Order</ion-button>
-  </ion-card>
+          <ion-button fill="clear">Lihat Detail</ion-button>
+          <ion-button fill="clear">Terima Order</ion-button>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'food'">
+      <ion-label>There is no data</ion-label>
+      <!-- <ion-item *ngFor="let orderRide of orderRides; let i = index">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Order Food (Maya)</ion-card-title>
+            <ion-card-subtitle>Pizza Hut - Rungkut (2,14 km)</ion-card-subtitle>
+            <ion-card-subtitle>Rp 142000</ion-card-subtitle>
+          </ion-card-header>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Order Food (Maya)</ion-card-title>
-      <ion-card-subtitle>Pizza Hut - Rungkut (2,14 km)</ion-card-subtitle>
-      <ion-card-subtitle>Rp 142000</ion-card-subtitle>
-    </ion-card-header>
+          <ion-card-content>
+            1 Pizza Reguler, 1 Milkshake
+          </ion-card-content>
 
-    <ion-card-content>
-      1 Pizza Reguler, 1 Milkshake
-    </ion-card-content>
-
-    <ion-button fill="clear">Lihat Detail</ion-button>
-    <ion-button fill="clear">Terima Order</ion-button>
-  </ion-card>
-
-  <!-- <ion-card>
-    <ion-img src="{{comic['url_poster']}}">
-    </ion-img>
-    <ion-card-header>
-      <ion-card-title class="ion-text-center">{{comic['judul']}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            View Count: {{comic['jumlah_view']}}
-          </ion-col>
-          <ion-col class="ion-text-end" *ngIf="comic['overall_rating']!=null">
-            Rating: {{comic['overall_rating']}}
-          </ion-col>
-          <ion-col class="ion-text-end" *ngIf="comic['overall_rating']==null">
-            Rating: {{0}}
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>   -->
+          <ion-button fill="clear">Lihat Detail</ion-button>
+          <ion-button fill="clear">Terima Order</ion-button>
+        </ion-card>
+      </ion-item> -->
+    </ion-list>
+  </div>
 </ion-content>

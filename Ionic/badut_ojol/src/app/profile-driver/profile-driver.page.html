@@ -13,30 +13,35 @@
 
 
   <ion-text>
-    <h3>Profil</h3>
+    <h3>Edit Profil</h3>
   </ion-text>
 
   <ion-img src="https://emojigraph.org/media/joypixels/clown-face_1f921.png"></ion-img>
 
   <ion-list>
     <ion-item>
-      <ion-input label="Nama Lengkap" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="Vincent">
+      <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating" [clearInput]="true" [counter]="true"
+        maxLength="40" [disabled]="true">
       </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Tanggal Lahir" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="Vincent">
+      <ion-input [(ngModel)]="password" label="Masukkan password baru" labelPlacement="floating" type="password" [clearInput]="true">
       </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Username" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="Vincent">
+      <ion-input [(ngModel)]="re_password" label="Ketik ulang password baru" labelPlacement="floating" type="password">
       </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Password" labelPlacement="stacked" type="password" [clearInput]="true" [disabled]="true"
-        value="Vincent">
+      <ion-input [(ngModel)]="nama_lengkap" label="Nama Lengkap" labelPlacement="floating" [clearInput]="true">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="tanggal_lahir" label="Tanggal Lahir" labelPlacement="floating" [clearInput]="true">
       </ion-input>
     </ion-item>
   </ion-list>
@@ -46,19 +51,21 @@
   </ion-text>
   <ion-list>
     <ion-item>
-      <ion-input label="Plat Nomor" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="AL 1234 JR">
+      <ion-input [(ngModel)]="plat_nomor" label="Plat Nomor" labelPlacement="floating" [clearInput]="true">
       </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Merk Kendaraan" labelPlacement="stacked" [clearInput]="true" [disabled]="true"
-        value="Honda Supra">
+      <ion-input [(ngModel)]="merk_kendaraan" label="Merk Kendaraan" labelPlacement="floating" [clearInput]="true">
       </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Warna Kendaraan" labelPlacement="stacked" [clearInput]="true" [disabled]="true" value="Biru">
+      <ion-input [(ngModel)]="warna_kendaraan" label="Warna Kendaraan" labelPlacement="floating" [clearInput]="true">
       </ion-input>
     </ion-item>
   </ion-list>
+  <ion-button color="success" expand="full" shape="round" (click)="ubahProfilDriver()">
+    Ubah Profil
+  </ion-button>
 </ion-content>
