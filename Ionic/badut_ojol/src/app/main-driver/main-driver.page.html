@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>List Order</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="log-out-outline" style="font-size: 34px;" (click)="logOut()"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -33,13 +36,13 @@
             <ion-card-subtitle>Rp. {{ orderRide['tarif']}}</ion-card-subtitle>
           </ion-card-header>
 
-          <ion-button fill="clear" routerLink="/home-driver/detail-order-driver">Lihat Detail</ion-button>
-          <ion-button fill="clear" (click)="listOngoingRide()">Terima Order</ion-button>
+          <ion-button fill="clear" routerLink="/home-driver/detail-order-driver/{{orderRide['id']}}">Lihat Detail</ion-button>
+          <ion-button fill="clear" (click)="ambilOrderRide()">Terima Order</ion-button>
         </ion-card>
       </ion-item>
     </ion-list>
     <ion-list *ngSwitchCase="'food'">
-      <ion-label>There is no data</ion-label>
+      <ion-label>Mohon maaf fitur belum tersedia</ion-label>
       <!-- <ion-item *ngFor="let orderRide of orderRides; let i = index">
         <ion-card>
           <ion-card-header>
@@ -66,7 +69,7 @@
             <ion-card-subtitle>Rp. {{ ongoingRide['tarif']}}</ion-card-subtitle>
           </ion-card-header>
 
-          <ion-button fill="clear" routerLink="/home-driver/detail-order-driver">Lihat Detail</ion-button>
+          <ion-button fill="clear" routerLink="/home-driver/detail-order-driver/{{ongoingRide['id']}}">Lihat Detail</ion-button>
           <ion-button fill="clear" (click)="finishOrderRide()">Selesaikan Order</ion-button>
         </ion-card>
       </ion-item>

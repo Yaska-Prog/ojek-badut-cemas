@@ -14,22 +14,23 @@ export class MainDriverPage implements OnInit {
   orderRides = [];
   ongoingOrderRides = [];
   result = "";
-  id_order = ""
+  id_order: number = 0
   id_driver = ""
 
   constructor(public ds: DriverService, private storage: Storage, private router: Router, private alertController: AlertController) { }
 
-  segmentChanged(ev: any){
+  segmentChanged(ev: any) {
     console.log('Segment changed', ev);
   }
 
   async ngOnInit() {
     await this.storage.create()
-    if(await this.storage.get('id_order') != null){
+    if (await this.storage.get('id_order') != null) {
       this.id_order = await this.storage.get('id_order')
     }
     this.listOrderRide();
-    this.listOngoingRide();
+    this.id_driver = await this.storage.get('id_driver')
+    this.listOnGoingRide()
   }
 
   async presentAlertSuccessAmbil() {
@@ -74,45 +75,79 @@ export class MainDriverPage implements OnInit {
     await alert.present();
   }
 
-  listOrderRide(){
+  listOrderRide() { //untuk mengambil order ride yang belum di acc
     this.ds.displayActiveOrderRide().subscribe(
       (data) => {
         this.result = data['status'];
-        if(this.result == 'Success'){
+        if (this.result == 'Success') {
           this.orderRides = data['data'];
         }
       }
     )
   }
 
-  listOngoingRide(){
-    this.ds.ambilOrderRide(this.id_order, this.id_driver).subscribe(
+  ambilOrderRide() {
+    this.ds.ambilOrderRide(this.id_order.toString(), this.id_driver).subscribe(
       (data) => {
         var dataRes: any = data
         this.result = dataRes['status'];
-        if(this.result == 'Success'){
+        if (this.result == 'Success') {
           this.presentAlertSuccessAmbil()
-          this.ongoingOrderRides = dataRes['data'];
+          window.location.reload();
         }
-        else{
+        else {
           this.presentAlertFailedAmbil()
         }
       }
     )
   }
 
-  finishOrderRide(){
-    this.ds.selesaiOrderRide(this.id_order).subscribe(
+  listOnGoingRide() {
+    this.ds.listOnGoingRide(this.id_driver).subscribe(
+      (data) => {
+        var dataRes: any = data
+        if (dataRes['status'] == 'Success') {
+          this.ongoingOrderRides = dataRes['data'];
+        }
+      }
+    )
+  }
+
+  finishOrderRide() {
+    this.ds.selesaiOrderRide(this.id_order.toString()).subscribe(
       (data) => {
         var dataRes: any = data
         this.result = dataRes['status'];
-        if(this.result == 'Success'){
+        if (this.result == 'Success') {
           this.presentAlertSuccessFinishOrder()
         }
-        else{
+        else {
           this.presentAlertFailedFinishOrder()
         }
       }
     )
+  }
+  async presentAlertSuccess() {
+    const alert = await this.alertController.create({
+      header: 'Sukses Logout!',
+      subHeader: 'Status Logout',
+      message: 'Selamat anda berhasil melakukan logout!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+  logOut() {
+    this.storage.set('username', '')
+    this.storage.set('id_user', '')
+    this.storage.set('saldo', '')
+    this.storage.set('nama_lengkap', '')
+    this.storage.set('tanggal_lahir', '')
+    this.storage.set('role', '')
+    this.storage.set('plat_nomor', '')
+    this.storage.set('merk_kendaraan', '')
+    this.storage.set('warna_kendaraan', '')
+    this.router.navigate(['/'])
+    this.presentAlertSuccess()
   }
 }

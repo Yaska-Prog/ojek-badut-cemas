@@ -58,6 +58,9 @@ export class LoginComponent implements OnInit {
             if (dataRes['data']['order_id'] != -1) {
               this.storage.set('id_order', dataRes['data']['order_id'])
             }
+            else {
+              this.storage.set('id_order', -1)
+            }
             this.router.navigate(['/home-pelanggan/main-pelanggan'])
           }
           else if (role == 'Driver') {

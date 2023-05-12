@@ -25,7 +25,7 @@ export class DriverService {
     return this.http.get('http://localhost/project-isa-cemas/webservice/listOrderRideAktif.php')
   }
 
-  updateProfile(id_driver: string, password:string,  nama_lengkap: string, tanggal_lahir: string, plat_nomor: string, merk_kendaraan: string, warna_kendaraan: string){
+  updateProfile(id_driver: string, password:string, nama_lengkap: string, tanggal_lahir: string, plat_nomor: string, merk_kendaraan: string, warna_kendaraan: string){
     let body = new HttpParams()
     body = body.set('id', id_driver)
     body = body.set('password', password)
@@ -60,5 +60,11 @@ export class DriverService {
     let body = new HttpParams()
     body = body.set('id', id_driver)
     return this.http.post('http://localhost/project-isa-cemas/webservice/historyOrderRideDriver.php', body)
+  }
+
+  listOnGoingRide(id_driver: string){
+    let body = new HttpParams()
+    body = body.set('id', id_driver)
+    return this.http.post('http://localhost/project-isa-cemas/webservice/listOrderRideProses.php', body)
   }
 }

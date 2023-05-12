@@ -8,11 +8,8 @@
   <ion-card *ngFor="let history of histories">
     <ion-card-header>
       <ion-card-title>Perjalanan menuju {{history.alamat_tujuan}}</ion-card-title>
-      <ion-card-subtitle>Rp. {{history.alamat_tujuan}}</ion-card-subtitle>
+      <ion-card-subtitle>Dari: {{history.alamat_tujuan}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content>
-      10 Mei 2023 (dummy)
-    </ion-card-content>
-    <ion-button fill="clear">Lihat lebih lanjut</ion-button>
+    <ion-button fill="clear" routerLink="/home-pelanggan/detail-order-pelanggan/{{history.id}}">Lihat lebih lanjut</ion-button>
   </ion-card>
 </ion-content>

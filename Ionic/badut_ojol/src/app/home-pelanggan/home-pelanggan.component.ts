@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home-pelanggan',
@@ -7,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePelangganComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private alertConroller: AlertController) { }
+  async presentAlertMakanan() {
+    const alert = await this.alertConroller.create({
+      header: 'Tidak tersedia',
+      subHeader: 'Status Fitur',
+      message: 'Mohon maaf fitur belum tersedia, harap cek pada rilisan berikutnya',
+      buttons: ['OK'],
+    });
 
-  ngOnInit() {}
+    await alert.present();
+  }
+  ngOnInit() {
+    this.presentAlertMakanan()
+  }
 
 }

@@ -5,7 +5,7 @@ describe('DetailOrderDriverPage', () => {
   let component: DetailOrderDriverPage;
   let fixture: ComponentFixture<DetailOrderDriverPage>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     fixture = TestBed.createComponent(DetailOrderDriverPage);
     component = fixture.componentInstance;
     fixture.detectChanges();

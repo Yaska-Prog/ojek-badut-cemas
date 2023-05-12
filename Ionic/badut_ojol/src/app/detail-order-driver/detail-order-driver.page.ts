@@ -11,7 +11,7 @@ export class DetailOrderDriverPage implements OnInit {
 
   constructor(public ds: DriverService, public route: ActivatedRoute) { }
 
-  id = ""
+  id: number = 0
   status = ""
   pemesan = ""
   alamat_jemput = ""
@@ -24,8 +24,8 @@ export class DetailOrderDriverPage implements OnInit {
     this.updateData(this.id)
   }
 
-  updateData(id: string) {
-    this.ds.detailOrderRide(this.id).subscribe(
+  updateData(id: number) {
+    this.ds.detailOrderRide(id.toString()).subscribe(
       (data) => {
         var dataRes: any = data
         if (dataRes['status'] == "Success") {

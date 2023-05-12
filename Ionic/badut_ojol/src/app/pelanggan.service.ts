@@ -29,7 +29,7 @@ export class PelangganService {
 
   historyPelanggan(custId: string){
     let body = new HttpParams()
-    body.set('id', custId)
+    body = body.set('id', custId)
     return this.http.post('http://localhost/project-isa-cemas/webservice/historyOrderRideCustomer.php', body)
   }
 

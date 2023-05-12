@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class ProfileDriverPage implements OnInit {
 
+  id_driver: number = 0
   username = ""
   password = ""
   re_password = ""
@@ -24,6 +25,7 @@ export class ProfileDriverPage implements OnInit {
 
   async ngOnInit() {
     await this.storage.create()
+    this.id_driver = await this.storage.get('id_driver')
     this.nama_lengkap = await this.storage.get('nama_lengkap')
     this.tanggal_lahir = await this.storage.get('tanggal_lahir')
     this.username = await this.storage.get('username')
@@ -54,10 +56,9 @@ export class ProfileDriverPage implements OnInit {
     await alert.present();
   }
 
-  async ubahProfilDriver() {
-    var id = await this.storage.get('id_driver')
+  ubahProfilDriver() {
     if (this.re_password = this.password) {
-      this.service.updateProfile(id, this.password, this.nama_lengkap, this.tanggal_lahir, this.plat_nomor, this.merk_kendaraan, this.warna_kendaraan).subscribe(
+      this.service.updateProfile(this.id_driver.toString(), this.password, this.nama_lengkap, this.tanggal_lahir, this.plat_nomor, this.merk_kendaraan, this.warna_kendaraan).subscribe(
         (data) => {
           var dataRes: any = data
           if (dataRes['status'] == "Success") {
@@ -66,7 +67,6 @@ export class ProfileDriverPage implements OnInit {
             this.storage.set('plat_nomor', dataRes['data']['plat_nomor'])
             this.storage.set('merk_kendaraan', dataRes['data']['merk_kendaraan'])
             this.storage.set('warna_kendaraan', dataRes['data']['warna_kendaraan'])
-
             this.presentAlertSuccess()
           }
           else {
