@@ -56,6 +56,10 @@ const routes: Routes = [
         path: 'profile-driver',
         loadChildren: () => import('./profile-driver/profile-driver.module').then(m => m.ProfileDriverPageModule)
       },
+      {
+        path: 'detail-order-driver/:id',
+        loadChildren: () => import('./detail-order-driver/detail-order-driver.module').then( m => m.DetailOrderDriverPageModule)
+      },
     ]
   },
   {
@@ -80,7 +84,6 @@ const routes: Routes = [
       },
     ]
   },
-
 ];
 
 @NgModule({

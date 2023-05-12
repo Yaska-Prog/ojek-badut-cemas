@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>detail-order-driver</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <br><br>
+  <ion-item padding>
+    <ion-label class="ion-text-left">ID</ion-label>
+    <ion-label class="ion-text-right">{{id}}</ion-label>
+  </ion-item> <br>
+  <ion-item padding>
+    <ion-label class="ion-text-left">Status</ion-label>
+    <ion-label class="ion-text-right">{{status}}</ion-label>
+  </ion-item> <br>
+  <ion-item padding>
+    <ion-label class="ion-text-left">Pemesan</ion-label>
+    <ion-label class="ion-text-right">{{pemesan}}</ion-label>
+  </ion-item> <br>
+
+  <ion-item padding>
+    <ion-label class="ion-text-left">Alamat penjemputan:</ion-label>
+    <ion-label class="ion-text-right">{{alamat_jemput}}</ion-label>
+  </ion-item> <br>
+
+  <ion-item padding>
+    <ion-label class="ion-text-left">Alamat tujuan</ion-label>
+    <ion-label class="ion-text-right">{{alamat_tujuan}}l</ion-label>
+  </ion-item> <br>
+
+  <ion-item padding>
+    <ion-label class="ion-text-left">Jarak</ion-label>
+    <ion-label class="ion-text-right">{{jarak}} Km</ion-label>
+  </ion-item> <br>
+
+  <ion-item padding>
+    <ion-label class="ion-text-left">Tarif</ion-label>
+    <ion-label class="ion-text-right">Rp. {{tarif}}</ion-label>
+  </ion-item> <br>
+</ion-content>

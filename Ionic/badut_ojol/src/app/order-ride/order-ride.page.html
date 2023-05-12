@@ -1,52 +1,38 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title>order-ride</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content [fullscreen]="true">
-    <ion-card>
-      <ion-item>
-        <ion-input
-        id="alamat_jemput"
-        label="Alamat jemput"
-        [(ngModel)]="alamat_jemput"
-        labelPlacement="floating">
-        </ion-input>
-      </ion-item>
-    </ion-card>
+  <ion-toolbar>
+    <ion-title>order-ride</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-card>
-      <ion-item>
-        <ion-input
-        id="alamat_tujuan"
-        label="Alamat tujuan"
-        [(ngModel)]="alamat_tujuan"
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-item>
+      <ion-input id="alamat_jemput" label="Alamat jemput" [(ngModel)]="alamat_jemput" labelPlacement="floating">
+      </ion-input>
+    </ion-item>
+  </ion-card>
 
-        labelPlacement="floating">
-        </ion-input>
-      </ion-item>
-    </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-input id="alamat_tujuan" label="Alamat tujuan" [(ngModel)]="alamat_tujuan" labelPlacement="floating">
+      </ion-input>
+    </ion-item>
+  </ion-card>
 
-    <ion-card>
-      <ion-item>
-        <ion-input
-        id="jarak"
-        label="Jarak"
-        [(ngModel)]="jarak"
-        labelPlacement="floating">
-        </ion-input>
-      </ion-item>
-    </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-input id="jarak" label="Jarak" [(ngModel)]="jarak" labelPlacement="floating">
+      </ion-input>
+    </ion-item>
+  </ion-card>
 
-    <ion-card>
-      <ion-item>
-        <ion-input
-        disabled="true">
+  <ion-card>
+    <ion-item>
+      <ion-input disabled="true">
         {{jarak * 10000}}
-        </ion-input>
-      </ion-item>
-    </ion-card>
+      </ion-input>
+    </ion-item>
+  </ion-card>
 
-    <ion-button color="success" expand="full" shape="round" (click)="order()">Order sekarang!</ion-button>
-  </ion-content>
+  <ion-button color="success" expand="full" shape="round" (click)="order()">Order sekarang!</ion-button>
+</ion-content>

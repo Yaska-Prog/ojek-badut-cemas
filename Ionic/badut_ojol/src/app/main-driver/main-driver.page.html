@@ -18,6 +18,9 @@
     <ion-segment-button value="food">
       <ion-label>Food</ion-label>
     </ion-segment-button>
+    <ion-segment-button value="ongoing">
+      <ion-label>Ongoing</ion-label>
+    </ion-segment-button>
   </ion-segment>
 
   <div [ngSwitch]="type">
@@ -30,8 +33,8 @@
             <ion-card-subtitle>Rp. {{ orderRide['tarif']}}</ion-card-subtitle>
           </ion-card-header>
 
-          <ion-button fill="clear">Lihat Detail</ion-button>
-          <ion-button fill="clear">Terima Order</ion-button>
+          <ion-button fill="clear" routerLink="/home-driver/detail-order-driver">Lihat Detail</ion-button>
+          <ion-button fill="clear" (click)="listOngoingRide()">Terima Order</ion-button>
         </ion-card>
       </ion-item>
     </ion-list>
@@ -53,6 +56,20 @@
           <ion-button fill="clear">Terima Order</ion-button>
         </ion-card>
       </ion-item> -->
+    </ion-list>
+    <ion-list *ngSwitchCase="'ongoing'">
+      <ion-item *ngFor="let ongoingRide of ongoingOrderRides; let i = index">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Order Ride ({{ ongoingRide['customer_name']}})</ion-card-title>
+            <ion-card-subtitle>{{ ongoingRide['alamat_jemput'] }} - {{ ongoingRide['alamat_tujuan'] }} ({{ ongoingRide['jarak'] }} km)</ion-card-subtitle>
+            <ion-card-subtitle>Rp. {{ ongoingRide['tarif']}}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-button fill="clear" routerLink="/home-driver/detail-order-driver">Lihat Detail</ion-button>
+          <ion-button fill="clear" (click)="finishOrderRide()">Selesaikan Order</ion-button>
+        </ion-card>
+      </ion-item>
     </ion-list>
   </div>
 </ion-content>
